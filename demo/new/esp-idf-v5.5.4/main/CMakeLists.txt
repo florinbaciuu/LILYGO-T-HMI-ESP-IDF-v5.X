@@ -3,18 +3,39 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Set usual component variables
-set( app_sources "main.cpp" "lvgl_port.c" "display_port.c" "touch_port.c" "lvgl_rtos_port.c" "board_config.c")
-set( app_include_dirs "." "" )
-set( app_requires button cmake_utilities esp_lcd_touch esp_lcd_touch_xpt2046 esp_mmap_assets fmt littlefs lvgl )
-set( app_priv_requires ${app_requires} esp_bootloader_format nvs_flash esp_wifi esp_rom driver fatfs spi_flash esp_driver_usb_serial_jtag esp_system heap 
-                    esp_common esp_psram esp_hw_support console )
+set(app_sources
+    "main.cpp"
+    "lvgl_port.c"
+    "display_port.c"
+    "touch_port.c"
+    "lvgl_rtos_port.c"
+    "board_config.c"
+)
+
+set(app_include_dirs
+    "."
+    ""
+)
+
+set(app_requires
+    esp_lcd_touch
+    esp_lcd_touch_xpt2046
+    littlefs
+    lvgl
+)
+set(app_priv_requires
+    ${app_requires}
+)
 
 # Set my components
 # These are components that are not part of the IDF 
 # but are used in this project.
 # Put this components in /lib after set 
 # set(EXTRA_COMPONENT_DIRS lib) in root/CMakeLists.txt
-set(my_components filesystem simple-cli-thmi-v001)
+set(my_components
+    filesystem
+    simple-cli-thmi-v001
+)
 
 
 idf_component_register(
