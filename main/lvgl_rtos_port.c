@@ -77,9 +77,10 @@ void lv_main_task(void* parameter) {
     while (true) {
         if (s_lvgl_lock(portMAX_DELAY)) {
             lv_timer_handler();
-            // xTaskGenericNotifyFromISR(xHandle_lv_main_task, tskDEFAULT_INDEX_TO_NOTIFY, 0x01, eSetBits);
+            s_lvgl_unlock();  // <— ADD
         }
         vTaskDelayUntil(&tick, pdMS_TO_TICKS(LV_DELAY));
+         //vTaskDelay(LV_DELAY);
     }
 }
 

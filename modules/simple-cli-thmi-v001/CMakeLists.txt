@@ -19,6 +19,10 @@ set(uptime_srcs # Se adauga uptime
 set(uptime_includes
     "modules/uptime_cmd")
 # ==================================== #
+set(timers_cmd_srcs # Se adauga modulul hello
+    "modules/timers_module_cmd/timers_module_cmd.c")
+set(timers_cmd_includes
+    "modules/timers_module_cmd")
 # ==================================== #
 # ==================================== #
 # ==================================== #
@@ -33,20 +37,21 @@ set(modules_srcs
     ${restart_srcs}
     ${tasks_srcs}
     ${uptime_srcs}
+    ${timers_cmd_srcs}
+
 )
 ## ------------------
+# Aduna toate modulele intr-un singur #
 set(modules_includes
     ${hello_cmd_includes}
     ${restart_includes}
     ${tasks_includes}
     ${uptime_includes}
+    ${timers_cmd_includes}
 )
 ## ------------------
 set(modules_priv_includes
-    ${hello_cmd_includes}
-    ${restart_includes}
-    ${tasks_includes}
-    ${uptime_includes}
+    ${modules_includes}
 )
 ## ------------------
 
@@ -107,7 +112,7 @@ set( # Asta adaug-o separat:
 # ------------------------------- #
 
 # dezactivează tratarea warningurilor ca erori pentru componenta asta
-target_compile_options( ${COMPONENT_LIB} PRIVATE -Wno-error -Wno-error=type-limits -Wno-unused-variable -Wno-unused-function -Wno-error=cpp )
+target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-error -Wno-error=type-limits -Wno-unused-variable -Wno-unused-function -Wno-error=cpp)
 set_source_files_properties(
     src/init.c src/one-cli.c
     PROPERTIES COMPILE_FLAGS "-Wno-error=cpp -Wno-error"

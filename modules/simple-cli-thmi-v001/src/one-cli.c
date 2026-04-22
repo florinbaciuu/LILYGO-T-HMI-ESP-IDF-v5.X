@@ -15,9 +15,9 @@ void cli_register_all_commands(void) {
                                           // lucrat in contionuare
     cli_register_hello_command();
     cli_register_restart_command();
-    cli_register_tasks_command();  // new command
-    //// cli_register_tasks_info_command();
+    cli_register_tasks_command(); 
     cli_register_uptime_command();
+    cli_register_timers_command();
     return;
 }
 

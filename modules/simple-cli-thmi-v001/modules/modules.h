@@ -10,5 +10,6 @@
 #include "modules/restart_cmd/restart_cmd.h"
 #include "modules/tasks_cmd/tasks_cmd.h"
 #include "modules/uptime_cmd/uptime_cmd.h"
+#include "modules/timers_module_cmd/timers_module_cmd.h"
 
 #endif /* MODULES_H_ */
