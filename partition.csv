@@ -7,7 +7,7 @@
      otadata,  data,       ota,  0x0D000,     8K,       ,  # Type:(0x00); Default: 8K(0x2000);
     phy_init,  data,       phy,  0x0F000,     4K,       ,  # Type:(0x01);
          app,   app,     ota_0,  0x10000,     5M,       ,  # Type:(0x00); offset default 0x10000(64K);  APP standard partition;
-        ffat,  data,       fat,         ,     1M,       ,  # Type:(0x81);
+       fatfs,  data,       fat,         ,     1M,       ,  # Type:(0x81);
       spiffs,  data,    spiffs,         ,     1M,       ,  # Type:(0x82);
     littlefs,  data,  littlefs,         ,     1M,       ,  # Type:(0x83);
      eeproom,  data,       nvs,         ,   512K,       ,  # Type:(0x02); ### EEPROOM PARTITION
