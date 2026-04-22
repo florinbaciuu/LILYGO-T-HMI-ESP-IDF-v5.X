@@ -15,7 +15,7 @@ void cli_register_all_commands(void) {
                                           // lucrat in contionuare
     cli_register_hello_command();
     cli_register_restart_command();
-    cli_register_tasks_command(); 
+    cli_register_tasks_command();
     cli_register_uptime_command();
     cli_register_timers_command();
     return;
@@ -64,7 +64,7 @@ TaskHandle_t xHandle__CLI;
 
 void printStartupMessage() {
     // printf("\n%s\n", florios_banner);  // Afișează blazonul
-    printf("\033[1;34m%s\033[0m\n", freertos_banner); 
+    printf("\033[1;34m%s\033[0m\n", freertos_banner);
     printf("\033[1;34m%s\033[0m\n", esp32_cli_banner);  // albastru intens
     printf("FREERTOS Operating System by Espressif.\n");
     printf("ESP32 CLI.\n");
@@ -80,8 +80,7 @@ void printStartupMessage() {
         "║  💣  Ctrl + C             →  Exit the console (if you dare)     ║\n"
         "╚═════════════════════════════════════════════════════════════════╝\n"
         "\n");
-    
-    
+
     printf("CLI Module Made by Florin Baciu.\n");
     printf("In East Europe. 2026\n");
     if (linenoiseIsDumbMode()) {
@@ -196,9 +195,10 @@ void Start_THMI_CLI() {
             (const char*) "CLI Task",                // Numele task-ului
             (uint32_t) (8192),                       // Dimensiunea stack-ului
             (NULL),                                  // Parametri
-            (UBaseType_t) configMAX_PRIORITIES - 7,  // Prioritatea task-ului
-            &xHandle__CLI,                           // Handle-ul task-ului
-            ((0))                                    // Nucleul pe care ruleaza (ESP32 e dual-core)
+            // (UBaseType_t) configMAX_PRIORITIES - 7,  // Prioritatea task-ului.  // PREA MULT ATENTIE
+            (UBaseType_t) tskIDLE_PRIORITY + 3,  // Prioritatea task-ului
+            &xHandle__CLI,  // Handle-ul task-ului
+            ((0))           // Nucleul pe care ruleaza (ESP32 e dual-core)
         );
     }
 }

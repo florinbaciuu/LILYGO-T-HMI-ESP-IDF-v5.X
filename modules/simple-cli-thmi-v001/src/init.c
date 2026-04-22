@@ -45,7 +45,7 @@ void initialize_console_library(const char *history_path) {
   esp_console_config_t console_config = {
     .max_cmdline_length = CONSOLE_MAX_CMDLINE_LENGTH,
     .max_cmdline_args = CONSOLE_MAX_CMDLINE_ARGS,
-    .heap_alloc_caps = 4096,
+    .heap_alloc_caps = MALLOC_CAP_SPIRAM,
 #if CONFIG_LOG_COLORS
     .hint_color = atoi(LOG_COLOR_CYAN),
 #endif
