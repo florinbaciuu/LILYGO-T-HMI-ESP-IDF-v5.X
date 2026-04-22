@@ -1,4 +1,0 @@
-dependencies:
-  espressif/coremark:
-    version: '*'
-description: Coremark benchmark application

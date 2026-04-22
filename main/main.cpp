@@ -8,8 +8,6 @@ extern "C" {
 #include "CONFIG.h" 
 #include "board_pins.h"
 #include "board_config.h"
-#include "esp_rom_sys.h"
-#include "nvs_flash.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -114,13 +112,6 @@ extern "C" void app_main(void) {
     power_latch_init();  // Inițializare latch pentru alimentare
     gfx_set_backlight(1);
     esp_log_level_set("*", ESP_LOG_INFO);
-
-    // NVS FIRST, ALWAYS
-    esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-        ESP_ERROR_CHECK(nvs_flash_erase());
-        ESP_ERROR_CHECK(nvs_flash_init());
-    }
 
     s_lvgl_port_init();
 
