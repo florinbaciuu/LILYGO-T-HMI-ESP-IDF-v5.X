@@ -8,7 +8,6 @@ set(app_sources
     "lvgl_port.c"
     "display_port.c"
     "touch_port.c"
-    "lvgl_rtos_port.c"
     "board_config.c"
 )
 
